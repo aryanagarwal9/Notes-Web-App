@@ -12,6 +12,7 @@ public class Note{
     }
 
     String getName() {
+        System.out.println("test commit");
         return this.name;
     }
 
