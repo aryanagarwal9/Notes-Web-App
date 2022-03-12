@@ -1,6 +1,6 @@
 package ucl.ac.uk.main;
 
-public class Note {
+public class Note{
     private String name;
 
     Note(String name) {
@@ -12,12 +12,7 @@ public class Note {
     }
 
     String getName() {
-//        return this.name;
-        int c = 0;
-        while (c < 1) {
-            c++;
-        }
-        return "hi";
+        return this.name;
     }
 
     void setName(String newName) {
