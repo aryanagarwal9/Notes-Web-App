@@ -28,4 +28,8 @@ public class Model{
     public ArrayList<String> getNoteNames(){
         return index.getNoteNames();
     }
+
+    public void deleteNote(String name){
+        index.deleteNote(name);
+    }
 }

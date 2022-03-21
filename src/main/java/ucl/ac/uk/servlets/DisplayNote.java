@@ -21,14 +21,14 @@ public class DisplayNote extends HttpServlet{
         ServletContext context = getServletContext();
 
         String id = request.getParameter("id");
-        String fname = id + ".txt";
+        request.setAttribute("name", id);
 
+        String fname = id + ".txt";
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
         InputStream is = classLoader.getResourceAsStream(fname);
 
         Model model = ModelFactory.getModel();
         String content = model.generateNoteContent(is);
-//        PrintWriter writer = response.getWriter();
 
         request.setAttribute("content", content);
 

@@ -15,14 +15,14 @@
 <ul>
     <%
         ArrayList<String> notes = (ArrayList<String>) request.getAttribute("noteNames");
-        System.out.println(notes);
+        if (notes != null){
         for (String note : notes)
         {
             String href = "http://localhost:8080/DisplayNote?id=" + note;
     %>
     <li><a href="<%=href%>"><%=note%></a>
     </li>
-    <% } %>
+    <% } }%>
 </ul>
 </body>
 </html>

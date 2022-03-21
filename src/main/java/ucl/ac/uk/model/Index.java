@@ -6,14 +6,20 @@ import java.util.Collections;
 
 public class Index{
     private ArrayList<Note> notes = new ArrayList<>();
+    private boolean tog = true;
 
     ArrayList<String> getNoteNames() {
-        try{
-        addNote("test1", "try text 1");} catch (FileAlreadyExistsException e) {
+        try {
+            if (tog) {
+                addNote("test1", "try text 1");
+                tog = false;
+            }
+        } catch (FileAlreadyExistsException e) {
             e.printStackTrace();
+        } finally {
+            tog = false;
         }
 
-//        addNote();
         ArrayList<String> noteNames = new ArrayList<>();
         if (!notes.isEmpty()) {
             for (Note note : notes) {
@@ -42,6 +48,7 @@ public class Index{
     }
 
     void deleteNote(String name) {
+        notes.removeIf(note -> (note.getName().equals(name)));
     }
 
     ArrayList<Note> sort() {

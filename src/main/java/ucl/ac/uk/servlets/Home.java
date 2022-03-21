@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 
 @WebServlet("")
@@ -22,9 +21,16 @@ public class Home extends HttpServlet{
         ServletContext context = getServletContext();
 
         Model model = ModelFactory.getModel();
-        ArrayList<String> noteNames = model.getNoteNames();
-//        PrintWriter writer = response.getWriter();
 
+        String button = request.getParameter("button");
+        String id = request.getParameter("id");
+        if (button != null) {
+            if (button.equals("Delete")) {
+                model.deleteNote(id);
+            }
+        }
+
+        ArrayList<String> noteNames = model.getNoteNames();
         request.setAttribute("noteNames", noteNames);
 
         RequestDispatcher dispatch = context.getRequestDispatcher("/index.jsp");
