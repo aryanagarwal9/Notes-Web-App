@@ -27,13 +27,32 @@ public class Home extends HttpServlet{
         if (button != null) {
             if (button.equals("Delete")) {
                 model.deleteNote(id);
+                System.out.println("deleted");
             }
         }
 
         ArrayList<String> noteNames = model.getNoteNames();
         request.setAttribute("noteNames", noteNames);
 
-        RequestDispatcher dispatch = context.getRequestDispatcher("/index.jsp");
+        RequestDispatcher dispatch = context.getRequestDispatcher("/Index.jsp");
+        dispatch.forward(request, response);
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
+
+        Model model = ModelFactory.getModel();
+
+        String newNoteName = request.getParameter("name");
+        String newNoteContent = request.getParameter("content");
+
+        model.addNote(newNoteName, newNoteContent);
+
+        ArrayList<String> noteNames = model.getNoteNames();
+        request.setAttribute("noteNames", noteNames);
+
+        ServletContext context = getServletContext();
+        RequestDispatcher dispatch = context.getRequestDispatcher("/Index.jsp");
         dispatch.forward(request, response);
     }
 

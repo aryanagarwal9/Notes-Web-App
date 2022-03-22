@@ -5,8 +5,13 @@ import org.apache.catalina.core.StandardContext;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.webresources.DirResourceSet;
 import org.apache.catalina.webresources.StandardRoot;
+import org.apache.tomcat.util.http.fileupload.FileUtils;
+import ucl.ac.uk.model.Env;
+import ucl.ac.uk.model.Model;
+import ucl.ac.uk.model.ModelFactory;
 
 import java.io.File;
+import java.io.IOException;
 
 public class Main {
 

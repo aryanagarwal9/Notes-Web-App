@@ -1,20 +1,29 @@
 package ucl.ac.uk.model;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import org.apache.tomcat.util.http.fileupload.FileUtils;
+
+import java.io.*;
+import java.nio.file.FileAlreadyExistsException;
 import java.util.ArrayList;
 
 public class Model{
 
     private Index index = new Index();
 
-    public String generateNoteContent(InputStream is) throws IOException {
+    //    Delete files in directory and add sample notes for coursework testing purposes
+    Model() throws IOException {
+        FileUtils.cleanDirectory(new File(Env.notesDir));
+
+        addNote("Template1", "Sample Content");
+        addNote("Template2", "Sample Content");
+    }
+
+    public String noteTextToHTML(InputStream is) throws IOException {
         String line;
-        String text = "<p>";
+        String text = "";
 
         if (is != null) {
+            text = "<p>";
             InputStreamReader isr = new InputStreamReader(is);
             BufferedReader reader = new BufferedReader(isr);
             while ((line = reader.readLine()) != null) {
@@ -27,6 +36,11 @@ public class Model{
 
     public ArrayList<String> getNoteNames(){
         return index.getNoteNames();
+    }
+
+//    take care of exception
+    public void addNote(String name, String content) throws FileAlreadyExistsException {
+        index.addNote(name, content);
     }
 
     public void deleteNote(String name){

@@ -15,9 +15,15 @@
 <h1><%=name%></h1>
 <% String content = (String) request.getAttribute("content");%>
 <%=content%>
-<form method="GET" action = "http://localhost:8080">
+
+<form method="GET" action="http://localhost:8080">
     <input type="hidden" name="id" value=<%=name%>>
     <input type="submit" name="button" value="Delete">
 </form>
+
+<form method="POST" action="NewNote.jsp">
+    <input type="submit" name="button" value="New Note">
+</form>
+
 </body>
 </html>

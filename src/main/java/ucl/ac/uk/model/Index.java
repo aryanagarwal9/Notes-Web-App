@@ -6,20 +6,8 @@ import java.util.Collections;
 
 public class Index{
     private ArrayList<Note> notes = new ArrayList<>();
-    private boolean tog = true;
 
     ArrayList<String> getNoteNames() {
-        try {
-            if (tog) {
-                addNote("test1", "try text 1");
-                tog = false;
-            }
-        } catch (FileAlreadyExistsException e) {
-            e.printStackTrace();
-        } finally {
-            tog = false;
-        }
-
         ArrayList<String> noteNames = new ArrayList<>();
         if (!notes.isEmpty()) {
             for (Note note : notes) {
@@ -38,11 +26,11 @@ public class Index{
         return false;
     }
 
-    void addNote(String name, String text) throws FileAlreadyExistsException {
+    void addNote(String name, String content) throws FileAlreadyExistsException {
         if (isNameUsed(name)) {
             throw new FileAlreadyExistsException("Please use a different name");
         } else {
-            Note note = new Note(name, text);
+            Note note = new Note(name, content);
             notes.add(note);
         }
     }

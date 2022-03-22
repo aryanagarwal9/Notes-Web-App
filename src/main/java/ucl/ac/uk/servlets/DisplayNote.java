@@ -24,11 +24,12 @@ public class DisplayNote extends HttpServlet{
         request.setAttribute("name", id);
 
         String fname = id + ".txt";
+        System.out.println(fname);
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
         InputStream is = classLoader.getResourceAsStream(fname);
 
         Model model = ModelFactory.getModel();
-        String content = model.generateNoteContent(is);
+        String content = model.noteTextToHTML(is);
 
         request.setAttribute("content", content);
 
