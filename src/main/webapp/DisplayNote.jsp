@@ -24,6 +24,9 @@
 <form method="POST" action="NewNote.jsp">
     <input type="submit" name="button" value="New Note">
 </form>
+<form method="POST" action="http://localhost:8080">
+    <input type="submit" name="button" value="Back">
+</form>
 
 </body>
 </html>
