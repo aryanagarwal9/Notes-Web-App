@@ -57,6 +57,17 @@ public class Model{
         return new ArrayList<>();
     }
 
+    public ArrayList<String> getSearchResult(String searchString) {
+        ArrayList<String> searchResult = new ArrayList<>();
+        ArrayList<String> noteNames = getNoteNames("Name");
+        for (String note : noteNames) {
+            if (note.toLowerCase().contains(searchString.toLowerCase())) {
+                searchResult.add(note);
+            }
+        }
+        return searchResult;
+    }
+
     //    take care of exception
     public void addNote(String noteName, String content) throws FileAlreadyExistsException {
         if (noteName != null) {

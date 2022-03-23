@@ -2,10 +2,9 @@ package ucl.ac.uk.model;
 
 import java.nio.file.FileAlreadyExistsException;
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class Index{
-    private ArrayList<Note> notes = new ArrayList<>();
+    private final ArrayList<Note> notes = new ArrayList<>();
 
     ArrayList<String> getNoteNames() {
         ArrayList<String> noteNames = new ArrayList<>();
@@ -39,13 +38,14 @@ public class Index{
         notes.removeIf(note -> (note.getName().equals(name)));
     }
 
-    ArrayList<Note> sort() {
-        ArrayList<Note> notesCopy = (ArrayList<Note>) notes.clone();
-
-        Collections.sort(notesCopy);
-
-        return notesCopy;
-    }
+//    Might not need
+//    ArrayList<Note> sort() {
+//        ArrayList<Note> notesCopy = (ArrayList<Note>) notes.clone();
+//
+//        Collections.sort(notesCopy);
+//
+//        return notesCopy;
+//    }
 
 
 }
