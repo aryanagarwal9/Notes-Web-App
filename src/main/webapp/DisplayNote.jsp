@@ -11,13 +11,13 @@
 </head>
 <body>
 
-<% String name = (String) request.getAttribute("name");%>
-<h1><%=name%></h1>
+<% String noteName = (String) request.getAttribute("noteName");%>
+<h1><%=noteName%></h1>
 <% String content = (String) request.getAttribute("content");%>
 <%=content%>
 
 <form method="GET" action="http://localhost:8080">
-    <input type="hidden" name="id" value=<%=name%>>
+    <input type="hidden" name="id" value=<%=noteName%>>
     <input type="submit" name="button" value="Delete">
 </form>
 

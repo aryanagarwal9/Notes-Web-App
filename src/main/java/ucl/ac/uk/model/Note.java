@@ -6,13 +6,7 @@ import java.util.Scanner;
 
 class Note implements Comparable<Note>{
     private String name;
-    private String fPath;
-
-// Might not need eventually
-    Note(String name) {
-        this.name = name;
-        this.fPath = Env.notesDir + this.name + ".txt";
-    }
+    private final String fPath;
 
     Note(String name, String text) {
         this.name = name;
@@ -56,12 +50,5 @@ class Note implements Comparable<Note>{
     @Override
     public int compareTo(Note note){
         return this.name.compareTo(note.name);
-    }
-
-    public static void main(String[] args) {
-//        Note note = new Note("test1", "");
-//        note = new Note("test2", " 2 text for testing 2");
-//        note.readText();
-
     }
 }

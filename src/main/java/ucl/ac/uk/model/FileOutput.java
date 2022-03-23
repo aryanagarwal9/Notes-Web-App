@@ -88,7 +88,7 @@ public class FileOutput implements Closeable, Flushable
      * Finalizer to close the file in case the using code fails to and a <code>FileOutput</code>
      * object gets garbage collected.
      */
-    public void finalize()
+    protected void finalize()
     {
         close();
     }

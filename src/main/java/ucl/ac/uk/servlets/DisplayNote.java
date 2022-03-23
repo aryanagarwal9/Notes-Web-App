@@ -18,18 +18,18 @@ public class DisplayNote extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        Model model = ModelFactory.getModel();
+
         ServletContext context = getServletContext();
 
         String id = request.getParameter("id");
-        request.setAttribute("name", id);
+        request.setAttribute("noteName", id);
 
         String fname = id + ".txt";
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
         InputStream is = classLoader.getResourceAsStream(fname);
 
-        Model model = ModelFactory.getModel();
         String content = model.noteTextToHTML(is);
-
         request.setAttribute("content", content);
 
         RequestDispatcher dispatch = context.getRequestDispatcher("/DisplayNote.jsp");
