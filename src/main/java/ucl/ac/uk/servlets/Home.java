@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 @WebServlet("")
 public class Home extends HttpServlet{
@@ -38,8 +39,7 @@ public class Home extends HttpServlet{
         dispatch.forward(request, response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-    {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         Model model = ModelFactory.getModel();
 
@@ -48,7 +48,9 @@ public class Home extends HttpServlet{
 
         model.addNote(newNoteName, newNoteContent);
 
-        ArrayList<String> noteNames = model.getNoteNames();
+        String sortCriteria = request.getParameter("sort");
+        ArrayList<String> noteNames = model.getNoteNames(sortCriteria);
+
         request.setAttribute("noteNames", noteNames);
 
         ServletContext context = getServletContext();

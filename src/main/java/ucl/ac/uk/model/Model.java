@@ -34,16 +34,33 @@ public class Model{
         return text;
     }
 
-    public ArrayList<String> getNoteNames(){
+    //    returns a list of names of notes, sorted by specified criteria
+    public ArrayList<String> getNoteNames(String sortCriteria) {
+        if (sortCriteria == null || sortCriteria.equals("Date Created")) {
+            return index.getNoteNames();
+
+        } else if (sortCriteria.equals("Name")) {
+            ArrayList<String> names = index.getNoteNames();
+            names.sort(String.CASE_INSENSITIVE_ORDER);
+            return names;
+
+        }
+        return null;
+    }
+
+    public ArrayList<String> getNoteNames() {
         return index.getNoteNames();
     }
 
-//    take care of exception
+
+    //    take care of exception
     public void addNote(String name, String content) throws FileAlreadyExistsException {
-        index.addNote(name, content);
+        if (name != null) {
+            index.addNote(name, content);
+        }
     }
 
-    public void deleteNote(String name){
+    public void deleteNote(String name) {
         index.deleteNote(name);
     }
 }

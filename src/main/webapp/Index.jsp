@@ -27,5 +27,10 @@
 <form method="POST" action = "NewNote.jsp">
     <input type="submit" name="button" value="New Note">
 </form>
-</body>
+<form method="POST" action ="http://localhost:8080">
+    <label>Sort By: </label>
+    <input type="submit" name="sort" value="Name">
+    <input type="submit" name="sort" value="Date Created">
+</form>
+        </body>
 </html>
