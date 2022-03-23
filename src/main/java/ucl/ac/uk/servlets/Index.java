@@ -30,7 +30,7 @@ public class Index extends HttpServlet{
             }
         }
 
-        ArrayList<String> noteNames = model.getNoteNames();
+        ArrayList<String> noteNames = model.getNoteNames("Date Created");
         request.setAttribute("noteNames", noteNames);
 
         RequestDispatcher dispatch = context.getRequestDispatcher("/Index.jsp");

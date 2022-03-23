@@ -1,11 +1,6 @@
 package ucl.ac.uk.model;
 
-import java.io.BufferedWriter;
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.Flushable;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * A class to enable the writing of values to a text file without having to deal with
@@ -88,8 +83,7 @@ public class FileOutput implements Closeable, Flushable
      * Finalizer to close the file in case the using code fails to and a <code>FileOutput</code>
      * object gets garbage collected.
      */
-    protected void finalize()
-    {
+    protected void finalize() {
         close();
     }
 

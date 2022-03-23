@@ -8,30 +8,39 @@ import java.util.ArrayList;
 
 public class Model{
 
-    private Index index = new Index();
+    private final Index index = new Index();
 
     //    Delete files in directory and add sample notes for coursework testing purposes
     Model() throws IOException {
         FileUtils.cleanDirectory(new File(Env.notesDir));
-
         addNote("Template1", "Sample Content");
         addNote("Template2", "Sample Content");
     }
 
-    public String noteTextToHTML(InputStream is) throws IOException {
-        String line;
-        String text = "";
+    public String noteTextToHTML(String noteName) throws IOException {
 
-        if (is != null) {
-            text = "<p>";
-            InputStreamReader isr = new InputStreamReader(is);
-            BufferedReader reader = new BufferedReader(isr);
+        String line;
+        StringBuilder text = new StringBuilder();
+
+        try {
+            BufferedReader reader = getBufferedReader(noteName);
+            text = new StringBuilder("<p>");
             while ((line = reader.readLine()) != null) {
-                text += line + "<br>";
+                text.append(line).append("<br>");
             }
-            text += "</p>";
+            text.append("</p>");
+            return text.toString();
+        } catch (NullPointerException e) {
+            return text.toString();
         }
-        return text;
+    }
+
+    private BufferedReader getBufferedReader(String noteName) throws NullPointerException {
+        String fName = noteName + ".txt";
+        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+        InputStream is = classLoader.getResourceAsStream(fName);
+        InputStreamReader isr = new InputStreamReader(is);
+        return new BufferedReader(isr);
     }
 
     //    returns a list of names of notes, sorted by specified criteria
@@ -40,27 +49,23 @@ public class Model{
             return index.getNoteNames();
 
         } else if (sortCriteria.equals("Name")) {
-            ArrayList<String> names = index.getNoteNames();
-            names.sort(String.CASE_INSENSITIVE_ORDER);
-            return names;
+            ArrayList<String> noteNames = index.getNoteNames();
+            noteNames.sort(String.CASE_INSENSITIVE_ORDER);
+            return noteNames;
 
         }
-        return null;
+        return new ArrayList<>();
     }
-
-    public ArrayList<String> getNoteNames() {
-        return index.getNoteNames();
-    }
-
 
     //    take care of exception
-    public void addNote(String name, String content) throws FileAlreadyExistsException {
-        if (name != null) {
-            index.addNote(name, content);
+    public void addNote(String noteName, String content) throws FileAlreadyExistsException {
+        if (noteName != null) {
+            index.addNote(noteName, content);
         }
     }
 
-    public void deleteNote(String name) {
-        index.deleteNote(name);
+    public void deleteNote(String noteName) {
+        index.deleteNote(noteName);
     }
+
 }

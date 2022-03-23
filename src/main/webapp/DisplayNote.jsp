@@ -12,7 +12,8 @@
 <body>
 
 <% String noteName = (String) request.getAttribute("noteName");%>
-<h1><%=noteName%></h1>
+<h1><%=noteName%>
+</h1>
 <% String content = (String) request.getAttribute("content");%>
 <%=content%>
 
