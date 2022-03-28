@@ -1,16 +1,11 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: aryanagarwal
-  Date: 22/03/22
-  Time: 2:05 PM
-  To change this template use File | Settings | File Templates.
---%>
 <html>
 <head>
     <title>Note</title>
 </head>
 <body>
-<form method="POST" action="http://localhost:8080">
+
+<%--Form for Adding a New Note--%>
+<form method="POST" action="AddNewNote">
     <label for="name">Enter Name of Note: </label>
     <input type="text" id="name" name="name" placeholder="Name" required>
     <br><br>
@@ -18,5 +13,9 @@
     <br>
     <input type="submit" value="submit"/>
 </form>
+
+<%--Back Button--%>
+<a href="http://localhost:8080"><input type="button" name="button" value="Back"></a>
+
 </body>
 </html>

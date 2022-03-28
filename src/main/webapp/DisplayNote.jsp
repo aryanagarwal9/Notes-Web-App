@@ -1,33 +1,29 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: aryanagarwal
-  Date: 13/03/22
-  Time: 3:20 AM
-  To change this template use File | Settings | File Templates.
---%>
 <html>
 <head>
     <title>Note</title>
 </head>
 <body>
 
+<%--Display Content of Note--%>
 <% String noteName = (String) request.getAttribute("noteName");%>
 <h1><%=noteName%>
 </h1>
 <% String content = (String) request.getAttribute("content");%>
 <%=content%>
 
-<form method="GET" action="http://localhost:8080">
+<%--Delete Note--%>
+<form method="GET" action="DeleteNote">
     <input type="hidden" name="id" value=<%=noteName%>>
     <input type="submit" name="button" value="Delete">
 </form>
 
-<form method="POST" action="NewNote.jsp">
+<%--Add New Note--%>
+<form method="GET" action="NewNote.jsp">
     <input type="submit" name="button" value="New Note">
 </form>
-<form method="POST" action="http://localhost:8080">
-    <input type="submit" name="button" value="Back">
-</form>
+
+<%--Back Button--%>
+<a href="http://localhost:8080"><input type="button" name="button" value="Back"></a>
 
 </body>
 </html>

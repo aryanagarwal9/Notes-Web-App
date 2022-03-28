@@ -37,15 +37,4 @@ public class Index{
     void deleteNote(String name) {
         notes.removeIf(note -> (note.getName().equals(name)));
     }
-
-//    Might not need
-//    ArrayList<Note> sort() {
-//        ArrayList<Note> notesCopy = (ArrayList<Note>) notes.clone();
-//
-//        Collections.sort(notesCopy);
-//
-//        return notesCopy;
-//    }
-
-
 }

@@ -57,6 +57,7 @@ public class Model{
         return new ArrayList<>();
     }
 
+
     public ArrayList<String> getSearchResult(String searchString) {
         ArrayList<String> searchResult = new ArrayList<>();
         ArrayList<String> noteNames = getNoteNames("Name");
