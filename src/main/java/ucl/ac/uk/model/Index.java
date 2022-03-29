@@ -6,16 +6,6 @@ import java.util.ArrayList;
 public class Index{
     private final ArrayList<Note> notes = new ArrayList<>();
 
-    ArrayList<String> getNoteNames() {
-        ArrayList<String> noteNames = new ArrayList<>();
-        if (!notes.isEmpty()) {
-            for (Note note : notes) {
-                noteNames.add(note.getName());
-            }
-        }
-        return noteNames;
-    }
-
     private boolean isNameUsed(String name) {
         for (Note note : notes) {
             if (name.equals(note.getName())) {
@@ -34,7 +24,36 @@ public class Index{
         }
     }
 
-    void deleteNote(String name) {
-        notes.removeIf(note -> (note.getName().equals(name)));
+    void editNote(String oldName, String newName, String newContent) {
+        for (Note note : notes) {
+            if (note.getName().equals(oldName)) {
+                note.editNote(newName, newContent);
+            }
+        }
     }
+
+    void deleteNote(String name) {
+        Note noteToBeDeleted = null;
+        for (Note note : notes) {
+            if (note.getName().equals(name)) {
+                noteToBeDeleted = note;
+            }
+        }
+//        Can not be removed inside the for loop due to ConcurrentModificationException
+        if (noteToBeDeleted != null) {
+            noteToBeDeleted.deleteNoteFile();
+            notes.remove(noteToBeDeleted);
+        }
+    }
+
+    ArrayList<String> getNoteNames() {
+        ArrayList<String> noteNames = new ArrayList<>();
+        if (!notes.isEmpty()) {
+            for (Note note : notes) {
+                noteNames.add(note.getName());
+            }
+        }
+        return noteNames;
+    }
+
 }

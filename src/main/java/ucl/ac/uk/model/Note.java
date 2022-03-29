@@ -1,12 +1,11 @@
 package ucl.ac.uk.model;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
 
-class Note implements Comparable<Note>{
+
+class Note{
     private String name;
-    private final String fPath;
+    private String fPath;
 
     Note(String name, String text) {
         this.name = name;
@@ -22,33 +21,25 @@ class Note implements Comparable<Note>{
         this.name = newName;
     }
 
-    String getfPath(){
-        return this.fPath;
+    void setfPath(String newName) {
+        this.fPath = Env.notesDir + newName + ".txt";
     }
 
-    void writeText(String text) {
+    private void writeText(String text) {
         FileOutput out = new FileOutput(this.fPath);
-
         out.writeString(text);
         out.close();
     }
 
-    public String readText(){
-        try {
-            File myObj = new File(this.fPath);
-            Scanner myReader = new Scanner(myObj);
-            String text = "";
-            while (myReader.hasNextLine()) {
-                text = myReader.nextLine();
-            } return text;
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        } return "fail";
+    void editNote(String newName, String newContent) {
+        deleteNoteFile();
+        setName(newName);
+        setfPath(newName);
+        writeText(newContent);
     }
 
-    @Override
-    public int compareTo(Note note){
-        return this.name.compareTo(note.name);
+    void deleteNoteFile() {
+        File myObj = new File(this.fPath);
+        myObj.delete();
     }
 }

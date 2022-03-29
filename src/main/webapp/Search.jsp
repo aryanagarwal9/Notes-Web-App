@@ -6,8 +6,6 @@
 </head>
 <body>
 
-<h2>Notes:</h2>
-
 <%--Search Box--%>
 <form method="POST" action="Search">
     <% String searchString = (String) request.getAttribute("searchString");%>
@@ -16,7 +14,8 @@
     <input type="submit" value="Search"/>
 </form>
 
-<%--Search Results--%>
+<%--Display Search Results--%>
+<h2>Notes:</h2>
 <ul>
     <%
         ArrayList<String> notes = (ArrayList<String>) request.getAttribute("searchResult");

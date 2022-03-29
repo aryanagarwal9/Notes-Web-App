@@ -35,7 +35,7 @@
     } %>
 </ul>
 
-<%--Add New Note--%>
+<%--Add New Note Button--%>
 <form method="GET" action="NewNote.jsp">
     <input type="submit" name="button" value="New Note">
 </form>

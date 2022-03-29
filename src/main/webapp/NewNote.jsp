@@ -7,7 +7,9 @@
 <%--Form for Adding a New Note--%>
 <form method="POST" action="AddNewNote">
     <label for="name">Enter Name of Note: </label>
-    <input type="text" id="name" name="name" placeholder="Name" required>
+    <input id="name" name="name" oninput="this.setCustomValidity('')"
+           oninvalid="this.setCustomValidity('Name should be alphanumeric and may contain hyphens')"
+           pattern="[a-zA-Z0-9-]+" placeholder="Name" required type="text">
     <br><br>
     <textarea rows="5" cols="50" name="content" placeholder="Enter Text"></textarea>
     <br>

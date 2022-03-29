@@ -22,7 +22,7 @@ public class DisplayNote extends HttpServlet{
         ServletContext context = getServletContext();
 
         String id = request.getParameter("id");
-        String content = model.noteTextToHTML(id);
+        String content = model.getNoteContentInHTML(id);
         request.setAttribute("noteName", id);
         request.setAttribute("content", content);
 
