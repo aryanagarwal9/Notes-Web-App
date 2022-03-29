@@ -21,38 +21,39 @@
         </div>
     </form>
 
-    <%--Sort Options--%>
-    <form method="GET" action="http://localhost:8080">
-        <div class="btn-group">
-            <button type="submit" class="btn btn-outline-light" name="sort" value="Name">Name</button>
-            <button type="submit" class="btn btn-outline-light" name="sort" value="Date Created">Date Created</button>
+        <%--Sort Options--%>
+        <form method="GET" action="http://localhost:8080">
+            <div class="btn-group">
+                <button type="submit" class="btn btn-outline-light" name="sort" value="Name">Name</button>
+                <button type="submit" class="btn btn-outline-light" name="sort" value="Date Created">Date Created
+                </button>
+            </div>
+        </form>
+
+        <%--Display List of Notes--%>
+        <div class="note-list">
+            <ul>
+                <%
+                    ArrayList<String> notes = (ArrayList<String>) request.getAttribute("noteNames");
+                    if (notes != null) {
+                        for (String note : notes) {
+                            String href = "http://localhost:8080/DisplayNote?id=" + note;
+                %>
+                <li class="note-list-bullet">
+                    <p class="note-list-item">
+                        <a href="<%=href%>"><%=note%>
+                        </a>
+                    </p>
+                </li>
+                <% }
+                } %>
+            </ul>
         </div>
-    </form>
 
-    <%--Display List of Notes--%>
-    <div class="note-list">
-        <ul>
-            <%
-                ArrayList<String> notes = (ArrayList<String>) request.getAttribute("noteNames");
-                if (notes != null) {
-                    for (String note : notes) {
-                        String href = "http://localhost:8080/DisplayNote?id=" + note;
-            %>
-            <li class="note-list-bullet">
-                <p class="note-list-item">
-                    <a href="<%=href%>"><%=note%>
-                    </a>
-                </p>
-            </li>
-            <% }
-            } %>
-        </ul>
-    </div>
-
-    <%--Add New Note Button--%>
-    <form method="GET" action="NewNote.jsp">
-        <button type="submit" class="btn btn-dark">New Note</button>
-    </form>
+        <%--Add New Note Button--%>
+        <form method="GET" action="NewNote.jsp">
+            <button type="submit" class="btn btn-dark">New Note</button>
+        </form>
 
 </div>
 
