@@ -32,10 +32,12 @@
             %>
             <li class="note-list-bullet">
                 <p class="note-list-item">
-                    <a href="<%=href%>"><%=note%></a>
+                    <a href="<%=href%>"><%=note%>
+                    </a>
                 </p>
             </li>
-            <% }} %>
+            <% }
+            } %>
         </ul>
     </div>
 

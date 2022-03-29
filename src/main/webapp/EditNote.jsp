@@ -1,6 +1,6 @@
 <html>
 
-<%@include file="Head.html"%>
+<%@include file="Head.html" %>
 
 <body>
 
@@ -22,7 +22,8 @@
 
         <div class="input-group">
             <span class="input-group-text">Content</span>
-            <textarea class="form-control" rows="20" cols="50" name="content" placeholder="Enter Text"><%=content%></textarea>
+            <textarea class="form-control" rows="20" cols="50" name="content"
+                      placeholder="Enter Text"><%=content%></textarea>
         </div>
 
     </form>

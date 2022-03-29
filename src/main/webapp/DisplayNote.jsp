@@ -1,6 +1,6 @@
 <html>
 
-<%@include file="Head.html"%>
+<%@include file="Head.html" %>
 
 <body>
 
@@ -9,7 +9,8 @@
     <%--Display Content of Note--%>
     <% String noteName = (String) request.getAttribute("noteName");%>
     <% String content = (String) request.getAttribute("content");%>
-    <h1 class="note-name"><%=noteName%></h1>
+    <h1 class="note-name"><%=noteName%>
+    </h1>
     <div class="display-content">
         <%=content%>
     </div>

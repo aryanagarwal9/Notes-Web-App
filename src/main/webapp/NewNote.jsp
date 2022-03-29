@@ -1,6 +1,6 @@
 <html>
 
-<%@include file="Head.html"%>
+<%@include file="Head.html" %>
 
 <body>
 

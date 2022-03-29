@@ -3,9 +3,8 @@ body {
     background-color: #BE8C63;
 }
 
-.home, .search {
+.home, .search, .new-note, .edit-note, .display-note {
     padding: 10% 15% 2% 15%;
-    /*padding: 100px 150px 20px 150px;*/
 }
 
 .note-list {
@@ -19,10 +18,6 @@ body {
 
 .note-list-item {
     font-size: 20px;
-}
-
-.new-note, .edit-note, .display-note {
-    padding: 100px 150px 20px 150px;
 }
 
 .note-name {

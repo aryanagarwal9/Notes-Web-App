@@ -30,22 +30,24 @@
     </form>
 
     <%--Display List of Notes--%>
-        <div class="note-list">
-    <ul>
-        <%
-            ArrayList<String> notes = (ArrayList<String>) request.getAttribute("noteNames");
-            if (notes != null) {
-                for (String note : notes) {
-                    String href = "http://localhost:8080/DisplayNote?id=" + note;
-        %>
-        <li class="note-list-bullet">
-            <p class="note-list-item">
-                <a href="<%=href%>"><%=note%></a>
-            </p>
-        </li>
-        <% }} %>
-    </ul>
-</div>
+    <div class="note-list">
+        <ul>
+            <%
+                ArrayList<String> notes = (ArrayList<String>) request.getAttribute("noteNames");
+                if (notes != null) {
+                    for (String note : notes) {
+                        String href = "http://localhost:8080/DisplayNote?id=" + note;
+            %>
+            <li class="note-list-bullet">
+                <p class="note-list-item">
+                    <a href="<%=href%>"><%=note%>
+                    </a>
+                </p>
+            </li>
+            <% }
+            } %>
+        </ul>
+    </div>
 
     <%--Add New Note Button--%>
     <form method="GET" action="NewNote.jsp">
