@@ -3,7 +3,7 @@ package ucl.ac.uk.model;
 import java.nio.file.FileAlreadyExistsException;
 import java.util.ArrayList;
 
-public class Index{
+class Index{
     private final ArrayList<Note> notes = new ArrayList<>();
 
     private boolean isNameUsed(String name) {

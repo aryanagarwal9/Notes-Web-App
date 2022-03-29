@@ -1,7 +1,39 @@
-.new-note, .edit-note {
-    padding: 100px 150px 20px 150px;
-}
 
 body {
     background-color: #BE8C63;
+}
+
+.home, .search {
+    padding: 10% 15% 2% 15%;
+    /*padding: 100px 150px 20px 150px;*/
+}
+
+.note-list {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.note-list-bullet {
+    list-style: square inside;
+}
+
+.note-list-item {
+    font-size: 20px;
+}
+
+.new-note, .edit-note, .display-note {
+    padding: 100px 150px 20px 150px;
+}
+
+.note-name {
+    background-color: #E4D1B9;
+    padding: 10px;
+}
+
+.display-content {
+    margin-top: 10px;
+    margin-bottom: 50px;
+    min-height: 500px;
+    border-style: dotted;
+    border-color: black;
 }

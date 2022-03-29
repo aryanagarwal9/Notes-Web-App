@@ -26,7 +26,7 @@ class Note{
     }
 
     private void writeText(String text) {
-        FileOutput out = new FileOutput(this.fPath);
+        NoteFileWriter out = new NoteFileWriter(this.fPath);
         out.writeString(text);
         out.close();
     }

@@ -1,35 +1,36 @@
 <html>
-<head>
-    <title>Note</title>
-</head>
+
+<%@include file="Head.html"%>
+
 <body>
 
-<%--Display Content of Note--%>
-<% String noteName = (String) request.getAttribute("noteName");%>
-<h1><%=noteName%>
-</h1>
-<% String content = (String) request.getAttribute("content");%>
-<%=content%>
+<div class="display-note">
 
-<%--Add New Note Button--%>
-<form method="GET" action="NewNote.jsp">
-    <input type="submit" name="button" value="New Note">
-</form>
+    <%--Display Content of Note--%>
+    <% String noteName = (String) request.getAttribute("noteName");%>
+    <% String content = (String) request.getAttribute("content");%>
+    <h1 class="note-name"><%=noteName%></h1>
+    <div class="display-content">
+        <%=content%>
+    </div>
 
-<%--Edit & Rename Note Button--%>
-<form method="GET" action="EditNote">
-    <input type="hidden" name="id" value=<%=noteName%>>
-    <input type="submit" name="button" value="Edit Note">
-</form>
+    <form method="GET">
+        <div class="btn-group">
+            <%--Home Button--%>
+            <a href="http://localhost:8080">
+                <button type="button" class="btn btn-dark">Home</button>
+            </a>
 
-<%--Delete Note Button--%>
-<form method="GET" action="DeleteNote">
-    <input type="hidden" name="id" value=<%=noteName%>>
-    <input type="submit" name="button" value="Delete">
-</form>
+            <%--Edit & Rename Note Button--%>
+            <input type="hidden" name="id" value="<%=noteName%>" formaction="Edit">
+            <button type="submit" class="btn btn-outline-dark" formaction="Edit">Edit</button>
 
-<%--Back Button--%>
-<a href="http://localhost:8080"><input type="button" name="button" value="Back"></a>
+            <%--Delete Note Button--%>
+            <input type="hidden" name="id" value="<%=noteName%>" formaction="Delete">
+            <button type="submit" class="btn btn-outline-dark" formaction="Delete">Delete</button>
+        </div>
+    </form>
+</div>
 
 </body>
 </html>
