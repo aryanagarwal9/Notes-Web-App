@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class Model{
 
     private final Index index = new Index();
+    private Integer counter = 1;
 
     //    Delete files in directory and add sample notes for coursework testing purposes
     Model() throws IOException {
@@ -18,7 +19,18 @@ public class Model{
     }
 
     public void addNote(String noteName, String content) throws FileAlreadyExistsException {
-        index.addNote(noteName, content);
+        try {
+            index.addNote(noteName, content);
+
+//            Recursively keep increasing the counter until name is unique
+        } catch (FileAlreadyExistsException e) {
+            counter += 1;
+            noteName = noteName + " (" + counter.toString() + ")";
+            index.addNote(noteName, content);
+
+        } finally {
+            counter = 1;
+        }
     }
 
     public void editNote(String oldName, String newName, String newContent) {
