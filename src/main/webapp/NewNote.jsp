@@ -5,7 +5,6 @@
 <body>
 
 <div class="new-note">
-
     <%--Form to enter name and content of note--%>
     <form id="new-note-form" method="POST" action="NewNote">
 
