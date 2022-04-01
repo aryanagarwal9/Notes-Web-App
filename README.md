@@ -8,6 +8,10 @@ The programme is used to store, search, and view note collections. It features a
 
 <br>
 
+## UML Diagram
+
+![UML Diagram](https://github.com/aryanagarwal9/Notes-Web-App/blob/main/UML.png)
+
 ## Design & Programming Process:
 
 The requirements were the starting point for the design process. Because the application required a user interface (View) as well as a back-end (Model) to fulfil additional functional needs, the Model-View-Controller (MVC) design pattern was used. During the design phase, an iterative approach was used. The Model's required classes were initially determined: a Note Class to represent each note and an Index Class to handle the collection of Notes. The View was chosen to be created using Java Server Pages, whereas the Controller was chosen to be done using Servlet Classes. The Model, View, and Controller were all built at the same time, rather than separately. Working on each requirement, the programme was created in stages.
