@@ -8,9 +8,11 @@ The programme is used to store, search, and view note collections. It features a
 
 <br>
 
-## UML Diagram
+## UML Diagram:
 
 ![UML Diagram](https://github.com/aryanagarwal9/Notes-Web-App/blob/main/UML.jpg)
+
+<br>
 
 ## Design & Programming Process:
 
