@@ -2,9 +2,9 @@
 
 <br>
 
-## Programme Features:
+## Program Features:
 
-The programme is used to store, search, and view note collections. It features an index that keeps track of the text-based notes. The complete content of a note can be accessed by clicking on it. Notes are displayed as a list of their names. They can be sorted based on their name and date of creation. They can be searched by looking up their titles. Notes can be added and removed, as well as renamed and their contents changed. The notes are automatically loaded when a note is displayed. While adding a new note or updating an existing one, changes are saved as soon as the "Done" button is clicked. The input is checked to ensure that the note's name isn't blank. An existing note's name can be reused, and the programme will automatically add a number to the front of the name to distinguish it.
+The program is used to store, search, and view note collections. It features an index that keeps track of the text-based notes. The complete content of a note can be accessed by clicking on it. Notes are displayed as a list of their names. They can be sorted based on their name and date of creation. They can be searched by looking up their titles. Notes can be added and removed, as well as renamed and their contents changed. The notes are automatically loaded when a note is displayed. While adding a new note or updating an existing one, changes are saved as soon as the "Done" button is clicked. The input is checked to ensure that the note's name isn't blank. An existing note's name can be reused, and the programme will automatically add a number to the front of the name to distinguish it.
 
 <br>
 
